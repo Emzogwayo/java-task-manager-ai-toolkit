@@ -1,40 +1,61 @@
-Toolkit Document
-1.	Title & Objective
+# 🧰 Toolkit Document
 
-Title:
-Java CLI Task Manager – Beginner Guide
-Objective:
+## 1. 📌 Title & Objective
+
+### Title
+**Java CLI Task Manager – Beginner Guide**
+
+### Objective
 The goal of this project is to build a simple command-line task manager using Java and understand how to use AI to learn and debug code.
 
-2.	Quick Summary
+---
+
+## 2. 📖 Quick Summary
 
 Java is a programming language used to build applications. In this project, I used Java to create a simple task manager that runs in the command line.
+
 A real-world example of this would be simple note-taking or to-do list applications.
 
-3.	System Requirements
+---
 
-OS: Windows / Mac / Linux 
-Software: Java JDK installed 
-Code editor: (VS Code / IntelliJ) 
+## 3. 💻 System Requirements
 
-4.	Installation & Setup
+- **OS:** Windows / Mac / Linux  
+- **Software:** Java JDK installed  
+- **Code Editor:** VS Code / IntelliJ  
 
-1.	Install Java JDK from the official website
-2.	Create a .java file named TaskManager.java
-3.	Compile the program: 
+---
+
+## 4. ⚙️ Installation & Setup
+
+1. Install Java JDK from the official website  
+2. Create a `.java` file named `TaskManager.java`  
+
+### Compile the program:
+```bash
 javac TaskManager.java
-4.	Run the program: 
+```
+
+### Run the program:
+```bash
 java TaskManager
+```
 
-5.	Minimal Working Example
+---
 
-Description:
+## 5. 🧪 Minimal Working Example
+
+### Description
 This program allows users to:
-•	Add tasks 
-•	View tasks 
-•	Exit the program 
+- Add tasks  
+- View tasks  
+- Exit the program  
 
-Initial Base Code:
+---
+
+### Initial Base Code
+
+```java
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -73,134 +94,121 @@ public class TaskManager {
         scanner.close();
     }
 }
+```
 
-Expected Output:
+---
+
+### Expected Output
+
+```
 1. Add Task
 2. View Tasks
 3. Exit
 Choose an option:
+```
 
-6.	AI Prompt Journal
+---
 
-Prompt 1: Making the Base Code
+## 6. 🤖 AI Prompt Journal
 
-I am a beginner learning Java.
+### Prompt 1: Making the Base Code
+
+I am a beginner learning Java.  
 Could you generate a simple command-line task manager program using ArrayList and Scanner?
-Requirements:
-•	Allow users to add tasks 
-•	View tasks 
-•	Exit the program 
-•	Keep the implementation simple and beginner-friendly 
-Please include comments in the code to explain key parts.
 
-Prompt 2: Understanding the Code
+**Requirements:**
+- Allow users to add tasks  
+- View tasks  
+- Exit the program  
+- Keep the implementation simple and beginner-friendly  
+- Include comments in the code  
 
-I’m a beginner trying to understand a simple Java task manager program.
-Here is my current understanding:
-•	The program uses an ArrayList called tasks to store tasks. 
-•	Choice 1 allows the user to add a task. 
-•	Choice 2 displays all tasks. 
-•	Choice 3 exits the program. 
-•	The program uses a while loop to keep running until the user exits. 
-However, I’m confused about a few concepts:
-1.	What is the difference between an ArrayList and an array? 
-2.	How does Scanner work in Java? 
-o	What is the difference between nextInt(), nextLine(), and next()? 
-3.	What does scanner.close() actually do? 
-4.	Does break exit the entire while loop? 
-Please explain these concepts in simple terms with examples.
+---
 
-My understanding before asking AI:
-•	I thought ArrayList stores tasks dynamically 
-•	I wasn’t sure how it differs from arrays 
-•	I thought lists might start at index 1 (incorrect) 
-•	I knew Scanner gets input but didn’t understand its methods 
+### Prompt 2: Understanding the Code
 
-What I learned from AI:
-•	ArrayList is dynamic, arrays are fixed size 
-•	Both arrays and ArrayLists start indexing at 0 
-•	Scanner reads user input from keyboard 
-•	nextInt() reads numbers, nextLine() reads full text 
-•	break exits the loop completely 
+#### My Understanding Before Asking AI
+- ArrayList stores tasks dynamically  
+- Unsure how it differs from arrays  
+- Thought lists start at index 1 (incorrect)  
+- Knew Scanner gets input but not how it works  
 
-Evaluation:
+#### Questions I Had
+1. Difference between ArrayList and arrays  
+2. How Scanner works  
+   - `nextInt()` vs `nextLine()` vs `next()`  
+3. What `scanner.close()` does  
+4. Whether `break` exits the loop  
+
+#### What I Learned
+- ArrayList is dynamic, arrays are fixed  
+- Indexing starts at 0  
+- Scanner reads user input  
+- `nextInt()` reads numbers, `nextLine()` reads full text  
+- `break` exits the loop  
+
+#### Evaluation
 AI helped clarify misconceptions and improved my understanding of Java fundamentals.
 
-Prompt 3: (understanding Scanner more)
+---
 
-I’m trying to understand how Scanner.nextLine() works after nextInt() in Java.
-Here’s my current understanding:
-•	nextInt() reads the number the user enters 
-•	nextLine() reads a full line of text 
-However, I’m confused because when I remove an extra nextLine() from my code, the program skips user input.
-For example:
-Choose an option: 1
-Enter task:
-Task added!
-It doesn’t allow me to type the task.
-Here is the code snippet:
+### Prompt 3: Understanding Scanner Bug
+
+#### Problem
+Input was skipped after using `nextInt()`
+
+#### Code Snippet
+```java
 int choice = scanner.nextInt();
 String task = scanner.nextLine();
-Could you:
-1.	Explain why the input is being skipped 
-2.	Describe what happens internally when pressing Enter 
-3.	Explain why adding an extra nextLine() fixes the issue 
-4.	Give a simple step-by-step example of how input is processed 
+```
 
-My understanding before asking AI:
-•	I knew nextInt() reads numbers 
-•	I knew nextLine() reads text 
-•	I didn’t understand why input was being skipped 
+#### What I Learned
+- `nextInt()` does NOT consume the newline  
+- `nextLine()` reads the leftover newline  
+- This causes skipped input  
+- Adding an extra `scanner.nextLine()` fixes it  
 
-What I learned:
-•	nextInt() does not consume the newline (Enter) 
-•	The leftover newline is immediately read by nextLine() 
-•	This causes input to be skipped 
-•	Adding an extra nextLine() clears the buffer 
+#### Testing / Experimentation
+- Removed `scanner.nextLine()` → bug occurred  
+- Re-added it → issue resolved  
 
-Evaluation:
-This helped me understand how Java handles user input internally and why bugs can occur when mixing nextInt() and nextLine().
+#### Evaluation
+This helped me understand how Java handles input internally and why bugs occur when mixing `nextInt()` and `nextLine()`.
 
-Testing / Experimentation:
-•	I removed scanner.nextLine() to observe behavior 
-•	The program skipped input and did not allow entering a task 
-•	I re-added it and confirmed the issue was resolved
+---
 
-Prompt 4:
-I have built a basic Java CLI to-do list application using ArrayList and Scanner.
-It allows users to:
-•	Add tasks 
-•	View tasks 
-•	Exit the program 
-I want to slightly improve the program without making it more complex.
-Could you suggest:
-1.	2–3 small improvements to make the program more user-friendly 
-2.	Improvements that are simple enough for a beginner 
-3.	Brief explanations of why each improvement is useful 
+### Prompt 4: Improving the Program
 
-What AI suggested:
-•	Handling empty task lists 
-•	Improving output messages 
-•	Numbering tasks 
+#### AI Suggestions
+- Handle empty task lists  
+- Improve output messages  
+- Number tasks  
 
-What I implemented:
+#### What I Implemented
+1. **Delete Task Feature** — Users can delete tasks by number  
+2. **Empty Task Validation** — Prevents adding empty tasks  
+3. **Invalid Input Handling** — Uses try-catch to prevent crashes  
 
-1. Delete Task Feature — Users can now select option 3 to delete tasks by their number. The program displays the task list and asks which one to delete.
-2. Empty Task Validation — When adding a task, it checks if the input is empty (even just spaces) and prevents it from being added.
-3. Invalid Input Handling — The menu input is now wrapped in a try-catch block that catches non-numeric entries. If a user types letters, it shows a friendly error message instead of crashing.
-
-Evaluation:
+#### Evaluation
 These improvements made the program more user-friendly and easier to understand.
 
-7.	Common Issues & Fixes
-Common Issue: Scanner Input Skipping
-•	Issue: Input skipped when using nextLine() 
-•	Cause: nextInt() does not consume the newline character 
-•	Fix: Add an extra scanner.nextLine() after nextInt()
+---
 
-8.	References 
-•	Official Java Documentation 
-•	Course materials 
-•	AI assistance (ChatGPT, Github copilot) 
-•	Online forums (e.g., StackOverflow)
+## 7. ⚠️ Common Issues & Fixes
 
+### Scanner Input Skipping
+- **Issue:** Input skipped when using `nextLine()`  
+- **Cause:** `nextInt()` does not consume the newline character  
+- **Fix:** Add `scanner.nextLine()` after `nextInt()`  
+
+---
+
+## 8. 📚 References
+
+- Official Java Documentation  
+- Course materials  
+- AI assistance (ChatGPT, GitHub Copilot)  
+- Online forums (e.g., Stack Overflow)  
+
+---
