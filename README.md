@@ -12,7 +12,6 @@
 - Any code editor (VS Code, IntelliJ, etc.)
 
 **2. Compile the Program**
-```bash
 javac TaskManager.java
 
 **3. Run the Program**
